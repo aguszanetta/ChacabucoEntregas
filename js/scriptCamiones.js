@@ -47,7 +47,7 @@ $(document).ready(function() {
             "data": "archivosHash",
             "render": function(data, type, row) {
                 if (data != "") {
-                    return "<div class='text-center'><div class='btn-group'><a id='aPDF' target='_blank' href='" + data + "'><button class='btn btn-secondary btn-sm btnPDF-subido'><i class='material-icons'>picture_as_pdf</i></button></a><button class='btn btn-info btn-sm btnDetalleCamion'><i class='material-icons'>info</i></button><button class='btn btn-primary btn-sm btnEditarCamion'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrarCamion'><i class='material-icons'>delete</i></button><button class='btn btn-success btn-sm btnCheckCamion'><i class='material-icons'>check</i></button></div></div>"
+                    return "<div class='text-center'><div class='btn-group'><button class='btn btn-secondary btn-sm btnPDF-subido' data-url='" + data + "'><i class='material-icons'>picture_as_pdf</i></button><button class='btn btn-info btn-sm btnDetalleCamion'><i class='material-icons'>info</i></button><button class='btn btn-primary btn-sm btnEditarCamion'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrarCamion'><i class='material-icons'>delete</i></button><button class='btn btn-success btn-sm btnCheckCamion'><i class='material-icons'>check</i></button></div></div>"
                 }
             }
         }],
@@ -400,6 +400,30 @@ $(document).ready(function() {
         })
     });
 
+    //Carta Porte Subida
+    $(document).on("click", ".btnPDF-subido", function() {
+        var urlArchivo = $(this).attr("data-url"); 
+        var nombreArchivo = urlArchivo.substring(urlArchivo.lastIndexOf('/') + 1).split('.')[0];
+
+        $.ajax({
+            url: urlArchivo,
+            type: 'HEAD', 
+            success: function() {
+                window.open(urlArchivo, '_blank');
+            },
+            error: function() {
+                Swal.fire({
+                title: 'Archivo no disponible',
+                html: "¡Atención! El archivo no se encuentra disponible.<br>" +
+                      "<strong>Cod. Referencia:</strong> " + nombreArchivo + "<br>" +
+                      "Por favor, contacte con la administración.",
+                icon: 'info'
+                })
+            }
+        });
+    });
+
+
     //Carta Porte Vacia
     $(document).on("click", ".btnPDF-vacio", function() {
         Swal.fire({
@@ -558,7 +582,7 @@ $(document).ready(function() {
             "data": "archivosHash",
             "render": function(data, type, row) {
                 if (data != "") {
-                    return "<div class='text-center'><div class='btn-group'><a id='aPDF' target='_blank' href='" + data + "'><button class='btn btn-secondary btn-sm btnPDF-subido'><i class='material-icons'>picture_as_pdf</i></button></a><button class='btn btn-info btn-sm btnDetalleCamionH'><i class='material-icons'>info</i></button><button class='btn btn-primary btn-sm btnVolverCamion'><i class='material-icons'>reply</i></button></div></div>"
+                    return "<div class='text-center'><div class='btn-group'><button class='btn btn-secondary btn-sm btnPDF-subido' data-url='" + data + "'><i class='material-icons'>picture_as_pdf</i></button><button class='btn btn-info btn-sm btnDetalleCamionH'><i class='material-icons'>info</i></button><button class='btn btn-primary btn-sm btnVolverCamion'><i class='material-icons'>reply</i></button></div></div>"
                 }
             }
         }],

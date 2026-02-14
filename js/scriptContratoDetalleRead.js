@@ -45,7 +45,7 @@ $(document).ready(function() {
             "data": "archivosHash",
             "render": function(data, type, row) {
                 if (data != "") {
-                    return "<div class='text-center'><div class='btn-group'><a id='aPDF' target='_blank' href='" + data + "'><button class='btn btn-secondary btn-sm btnPDF-subido'><i class='material-icons'>picture_as_pdf</i></button></a><button id='btnContratoDetalleDRead' class='btn btn-info btn-sm'><i class='material-icons'>info</i></button></div></div>"
+                    return "<div class='text-center'><div class='btn-group'><button class='btn btn-secondary btn-sm btnPDF-subido' data-url='" + data + "'><i class='material-icons'>picture_as_pdf</i></button><button id='btnContratoDetalleDRead' class='btn btn-info btn-sm'><i class='material-icons'>info</i></button></div></div>"
                 }
             }
         }],
