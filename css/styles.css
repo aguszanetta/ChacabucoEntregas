@@ -1,0 +1,167 @@
+html {
+    scroll-padding-top: 3.5rem;
+}
+
+header {
+    padding-top: 9.5rem;
+    padding-bottom: 6rem;
+}
+
+.btn-password {
+    height: 38px;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #c7c7c7;
+    background: #e7e7e7;
+}
+
+.btn-password:hover {
+    background: #bdbdbd;
+}
+
+#tablaCamionesA {
+    zoom: 90%;
+}
+
+#tablaClientes {
+    zoom: 80%;
+}
+
+.carousel-control-next,
+.carousel-control-prev
+/*,.carousel-indicators */
+
+{
+    filter: invert(100%);
+}
+
+
+/*
+#btn-password:active {
+    background: #969696;
+}
+*/
+
+.contact-section {
+    padding-top: 5rem;
+}
+
+.contact-section .card {
+    border: 0;
+    border-bottom: 0.25rem solid #64a19d;
+}
+
+.contact-section .card h4,
+.contact-section .card .h4 {
+    font-size: 0.8rem;
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
+.contact-section .card hr {
+    border-color: #64a19d;
+    border-width: 0.25rem;
+    width: 3rem;
+}
+
+.contact-section .social {
+    margin-top: 5rem;
+}
+
+.contact-section .social a {
+    text-align: center;
+    height: 3rem;
+    width: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100%;
+    line-height: 3rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-section .social a:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-section .social a:active {
+    color: #fff;
+}
+
+
+/*.text-primary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+}*/
+
+.line {
+    border-top: 0px !important;
+}
+
+#contacto {
+    padding-bottom: 5rem;
+}
+
+.icons {
+    color: #64a19d;
+}
+
+.stripedRow {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.navhr {
+    display: none;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: rgba(90, 92, 105, .5);
+    border-color: rgba(90, 92, 105, .5);
+}
+
+#btn-back-to-top:hover {
+    background-color: #5a5c69;
+}
+
+.headerLogoTexto:hover,
+.headerLogoTexto:visited,
+.headerLogoTexto:link,
+.headerLogoTexto:active,
+.headerLogoTexto {
+    color: #fff;
+    font-size: 1.25rem;
+    text-decoration: none !important;
+}
+
+#carouselimg01,
+#carouselimg02,
+#carouselimg03 {
+    margin-top: 96px;
+}
+
+#rol {
+    display: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .navhr {
+        display: block;
+        color: grey;
+    }
+    .borrarArchivo {
+        padding: 5px;
+        margin-left: 7px;
+    }
+    .headerTitulo {
+        display: none;
+    }
+}
