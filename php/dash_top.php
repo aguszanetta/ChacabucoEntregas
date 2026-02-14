@@ -1,12 +1,32 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['s_usuario'])) {
-        header("Location: login.php");
-    }else{
-        if(($_SESSION["s_rol"])=="cliente" || ($_SESSION["s_rol"])=="corredor" ){
+session_start();
+
+if (!isset($_SESSION['s_usuario'])) {
+    header("Location: login.php");
+    exit();
+}
+
+switch ($_SESSION["s_rol"] ?? null) {
+    case "admin":
+        break;
+    case "cliente":
+        if (!isset($_SESSION['s_clienteID']) || empty($_SESSION['s_clienteID'])) {
+            header("Location: sinpermisos.php");
+        } else {
             header("Location: contratosRead.php");
         }
-    } 
+        exit();
+    case "corredor":
+        if (!isset($_SESSION['s_corredorID']) || empty($_SESSION['s_corredorID'])) {
+            header("Location: sinpermisos.php");
+        } else {
+            header("Location: contratosRead.php");
+        }
+        exit();
+    default:
+        header("Location: sinpermisos.php");
+        exit();
+}
 ?>
 
 <!DOCTYPE html>

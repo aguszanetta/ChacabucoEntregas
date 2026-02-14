@@ -1,12 +1,31 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['s_usuario'])) {
-        header("Location: login.php");
-    }else{
-        if(($_SESSION["s_rol"])=="admin"){
-            header("Location: indexDashboard.php");
+session_start();
+
+if (!isset($_SESSION['s_usuario'])) {
+    header("Location: login.php");
+    exit();
+}
+
+switch ($_SESSION["s_rol"] ?? null) {
+    case "admin":
+        header("Location: indexDashboard.php");
+        exit();
+    case "cliente":
+        if (empty($_SESSION['s_clienteID'])) {
+            header("Location: sinpermisos.php");
+            exit();
         }
-    } 
+        break;
+    case "corredor":
+        if (empty($_SESSION['s_corredorID'])) {
+            header("Location: sinpermisos.php");
+            exit();
+        }
+        break;
+    default:
+        header("Location: sinpermisos.php");
+        exit();
+}
 ?>
 
 <!DOCTYPE html>
